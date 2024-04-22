@@ -21,8 +21,9 @@ namespace ConsoleApp
             this.palindromes = palindromes;
         }
 
-        public void Find(object? o)
+        public void Find(object? state)
         {
+            AutoResetEvent are = (AutoResetEvent) state;
             List<int> discharges = new();
             for (int l = 2; l < source.Length; l++)
             {
@@ -56,7 +57,7 @@ namespace ConsoleApp
                 }
             }
 
-
+            are.Set();
         }
     }
 }
